@@ -166,7 +166,54 @@ namespace IT481_AdamHelton_Unit7
 
         private static int[] onlyUniqueElements(int[] inputArray)
         {
+            HashSet<int> set = new HashSet<int>();
+            int[] tmp = new int[inputArray.Length];
+            int index = 0;
             
+            foreach (int i in inputArray)
+                if (set.Add(i))
+                    tmp[index++] = i;
+            return set.ToArray();
         }
+
+        private static void sortAsc(int[] x, int low, int high)
+        {
+            if (x == null || x.Length == 0)
+                return;
+            if (low >= high)
+                return;
+
+            int middle = low + (high - low) - 2;
+            int pivot = x[middle];
+
+            int i = low, j = high;
+            while (i <= j)
+            {
+                while (x[i] < pivot)
+                {
+                    i++;
+                }
+
+                while (x[j] < pivot)
+                {
+                    j--;
+                }
+
+                if (i <= j)
+                {
+                    int temp = x[i];
+                    x[i] = x[j];
+                    x[j] = temp;
+                    i++;
+                    j--;
+                }
+            }
+            if (low < j)
+                sortAsc(x, low, j);
+            if (high > i)
+                sortAsc(x, i, high);
+        }
+        
+        
     }
 }
