@@ -36,7 +36,7 @@ namespace IT481_AdamHelton_Unit7
             Array.Copy(newMediumArray, 0, quickMediumArray, 0, quickMediumArray.Length);
 
             size = "medium";
-            runSortArray(MediumArray, size, type);
+            runSortArray(mediumArray, size, type);
             
             
             int[] largeArray = getArray(10000, 100);
@@ -49,9 +49,68 @@ namespace IT481_AdamHelton_Unit7
 
             size = "large";
             runSortArray(largeArray, size, type);
-            
-            
 
+            newSmallArray = onlyUniqueElements(newSmallArray);
+            size = "new small unique";
+            runSortArray(newSmallArray, size, type);
+
+            newMediumArray = onlyUniqueElements(newMediumArray);
+            size = "new medium unique";
+            runSortArray(newMediumArray, size, type);
+
+            newLargeArray = onlyUniqueElements(newLargeArray);
+            size = "new large unique";
+            runSortArray(newLargeArray, size, type);
+
+
+
+            type = 2;
+
+            size = "quick small";
+            runSortArray(quickSmallArray, size, type);
+            
+            size = "quick medium";
+            runSortArray(quickMediumArray, size, type);
+
+            size = "quick large";
+            runSortArray(quickLargeArray, size, type);
+
+            Console.Read();
+        }
+
+        private static int[] getArray(int size, int randomMaxSize)
+        {
+            int[] myArray = new int[size];
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                myArray[i] = GetRandomNumber(1, randomMaxSize);
+            }
+
+            return myArray;
+        }
+
+        private static void runSortArray(int[] arr, String size, int type)
+        {
+            long elapsedTime = 0;
+
+            String sort = null;
+            if (type == 1)
+            {
+                sort = "bubble";
+            }
+            else if (type == 2)
+            {
+                sort = "quick";
+            }
+
+            if (debug)
+            {
+                Console.WriteLine("Array before the " + sort + " sort");
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
+            }
         }
     }
 }
