@@ -145,5 +145,28 @@ namespace IT481_AdamHelton_Unit7
             Console.WriteLine("The run time is for the " + size + " array in nanoseconds is " + elapsedTime);
             Console.WriteLine("\n\n");
         }
+
+        private static void bubbleSort(int[] intArray)
+        {
+            int temp = 0;
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                for int j = 0;
+                j < intArray.Length -1; j++)
+                {
+                    if (intArray[j] > intArray[j + 1])
+                    {
+                        temp = intArray[j + 1];
+                        intArray[j + 1] = intArray[j];
+                        int array[j] = temp;
+                    }
+                }
+            }
+        }
+
+        private static int[] onlyUniqueElements(int[] inputArray)
+        {
+            
+        }
     }
 }
