@@ -213,7 +213,15 @@ namespace IT481_AdamHelton_Unit7
             if (high > i)
                 sortAsc(x, i, high);
         }
-        
-        
+
+        private static readonly Random getRandom = new Random();
+
+        public static int GetRandomNumber(int min, int max)
+        {
+            lock (getRandom)
+            {
+                return getRandom.Next(min, max);
+            }
+        }
     }
 }
