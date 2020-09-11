@@ -111,6 +111,39 @@ namespace IT481_AdamHelton_Unit7
                     Console.Write(arr[i] + " ");
                 }
             }
+            stopwatch = Stopwatch.StartNew();
+            if (type == 1)
+            {
+                bubbleSort(arr);
+            }
+            else if (type == 2)
+            {
+                int low = 0;
+                int high = arr.Length - 1;
+                sortAsc(arr, low, high);
+            }
+            Console.WriteLine();
+
+            if (debug)
+            {
+                Console.WriteLine("Array after the " + sort + " sort");
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    Console.Write(arr[i] + " ");
+                }
+            }
+            
+            stopwatch.Stop();
+
+            elapsedTime = stopwatch.ElapsedTicks;
+            long frequency = Stopwatch.Frequency;
+            long nanosecondsPerTick = (1000L * 1000L * 1000L) / frequency;
+            elapsedTime = elapsedTime * nanosecondsPerTick;
+            Console.WriteLine("\n");
+
+            Console.WriteLine("The run time is for the " + size + " array in nanoseconds is " + elapsedTime);
+            Console.WriteLine("\n\n");
         }
     }
 }
