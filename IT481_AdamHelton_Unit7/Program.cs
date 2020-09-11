@@ -27,10 +27,7 @@ namespace IT481_AdamHelton_Unit7
             
             
             
-            
-            
-            
-            int[] mediumArray = getArray(10, 100);
+            int[] mediumArray = getArray(100, 100);
 
             int[] newMediumArray = new int[mediumArray.Length];
             Array.Copy(mediumArray, 0, newMediumArray, 0, newMediumArray.Length);
@@ -40,6 +37,20 @@ namespace IT481_AdamHelton_Unit7
 
             size = "medium";
             runSortArray(MediumArray, size, type);
+            
+            
+            int[] largeArray = getArray(10000, 100);
+
+            int[] newLargeArray = new int[largeArray.Length];
+            Array.Copy(largeArray, 0, newLargeArray, 0, newLargeArray.Length);
+            
+            int[] quickLargeArray = new int[newLargeArray.Length];
+            Array.Copy(newLargeArray, 0, quickLargeArray, 0, quickLargeArray.Length);
+
+            size = "large";
+            runSortArray(largeArray, size, type);
+            
+            
 
         }
     }
